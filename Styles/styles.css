@@ -1,11 +1,58 @@
 /* Variables */
 :root {
-    --bg-gradient: linear-gradient(to right, #8c4bf9, #c270a6, #fd9255);
+    --bot: #8c4bf9;
+    --mid: #c270a6;
+    --top: #fd9255;
+    --text-primary: #483741;
+    --text-secondary: #9ceaef;
+    --text-accent: #6ec3c9;
 }
+
 /* General styles */
 body {
-    background-image: var(--bg-gradient);
+    background-image: linear-gradient( var(--top), var(--mid), var(--bot));
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p, h1 {
+    color: var(--text-primary);
+}
+
+.glassmorphism {
+    backdrop-filter: blur(14px) saturate(90%);
+    -webkit-backdrop-filter: blur(14px) saturate(90%);
+    background-color: rgba(17, 25, 40, 0.15);
+    border-radius: 12px;
+    margin: 3rem 7rem;
+}
+
+/* Navbar adjustments */
+.navigation {
+    border-bottom: 1px solid black;
+    background-color: var(--text-secondary);
+    background-image: 
+        radial-gradient(at 15% 10%, var(--top) 0, transparent 50%), 
+        radial-gradient(at 95% 90%, var(--bot) 0, transparent 50%);
+}
+
+.navbar-toggler:focus {
+    border-color: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler {
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+    transform: rotate(90deg);
+}
+
+.navbar-nav .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .py-md-7 {
@@ -36,12 +83,6 @@ body {
 /* Object fit utility */
 .object-fit-cover {
     object-fit: cover;
-}
-
-/* Navbar adjustments */
-.navbar-nav .nav-link {
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 /* Button hover effects */
@@ -76,7 +117,11 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 767.98px) {
+@media (max-width: 765px) {
+    .glassmorphism {
+        margin: 2rem;;
+    }
+
     .display-4 {
         font-size: 2.5rem;
     }
