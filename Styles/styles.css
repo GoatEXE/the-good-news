@@ -3,6 +3,7 @@
     --bot: #8c4bf9;
     --mid: #c270a6;
     --top: #fd9255;
+    --sun: #ffc75f;
     --text-primary: #483741;
     --text-secondary: #9ceaef;
     --text-accent: #6ec3c9;
@@ -10,8 +11,21 @@
 
 /* General styles */
 body {
-    background-image: linear-gradient( var(--top), var(--mid), var(--bot));
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: linear-gradient(
+        135deg, 
+        var(--top), 
+        var(--mid), 
+        var(--bot),
+        var(--sun)
+    );
+    background-size: 400%;
+    animation: bg-animation 15s infinite alternate;
+}
+
+@keyframes bg-animation {
+    0% {background-position: 0%}
+    100% {background-position: 100%}
 }
 
 p, h1 {
@@ -31,8 +45,8 @@ p, h1 {
     border-bottom: 1px solid black;
     background-color: var(--text-secondary);
     background-image: 
-        radial-gradient(at 15% 10%, var(--top) 0, transparent 50%), 
-        radial-gradient(at 95% 90%, var(--bot) 0, transparent 50%);
+        radial-gradient(at 15% 10%, var(--sun) 0, transparent 70%), 
+        radial-gradient(at 95% 90%, var(--mid) 0, transparent 70%);
 }
 
 .navbar-toggler:focus {
